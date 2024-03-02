@@ -11,6 +11,19 @@ check_installed() {
 	fi
 }
 
+setup_python_environment() {
+	check_installed "python3"
+	check_installed "python3-venv"
+	check_installed "python3-pip"
+
+	echo "Creating virtual environment..."
+	python3 -m venv venv
+	echo "Activating virtual environment..."
+	source venv/bin/activate
+
+	echo -e "\nPython venv configured successfully.\n"
+}
+
 cat << EOF
 
 **************** SETUP ****************
@@ -30,16 +43,7 @@ read -p "> " project_type
 
 case $project_type in
 	1)
-		check_installed "python3"
-		check_installed "python3-venv"
-		check_installed "python3-pip"
-
-		echo "Creating virtual environment..."
-		python3 -m venv venv
-		echo "Activating virtual environment..."
-		source venv/bin/activate
-
-		echo -e "\nPython venv configured successfully.\n"
+		setup_python_environment
 		;;
 	0)
 		echo ""
