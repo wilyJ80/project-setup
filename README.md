@@ -5,6 +5,7 @@
 # TODO
 
 - Arduino CLI
+- Arduino CLI + ESP32 (needs python3-serial)
 - Java
 - JavaScript + Vitest
 - Python + pytest
